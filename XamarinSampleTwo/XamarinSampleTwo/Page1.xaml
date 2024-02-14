@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinSampleTwo.Page1">
+    <ContentPage.Content>
+        <StackLayout  VerticalOptions="Center">
+            <Label Text="Hello" x:Name="label1"  HorizontalOptions="Center"></Label>
+            <Slider x:Name="slider1" ValueChanged="slider_ValueChanged"></Slider>
+
+            <Label x:Name="label2" HorizontalOptions="Center" Padding="20" FontSize="Large"></Label>
+            <Entry x:Name="EntryText" Placeholder="write something" TextChanged="EntryText_TextChanged"/>
+
+            <!--<Label Text="{Binding Source={x:Reference slider2},
+            Path=Value,StringFormat='value is {0:F2}'}" 
+                   Opacity="{Binding Source={x:Reference slider2},
+                Path=Value}"
+            x:Name="label3"></Label>-->
+            <Label BindingContext="{x:Reference slider2}"
+                   Text="{Binding Value,StringFormat='value is {0:f3}'}" Opacity="{Binding Value}" Padding="20"></Label>
+            <Slider x:Name="slider2"></Slider>
+
+            
+            <Label x:Name="label3" Text="Change the FontSize with the slider value." 
+                   FontSize="{Binding Source={x:Reference slider3},Path=Value}" Padding="30">
+            </Label>
+            <Slider x:Name="slider3" Maximum="50" Minimum="16"></Slider>
+            
+
+            <Label x:Name="label4" Text="Change the fontsize." Padding="30"></Label>
+            <Slider x:Name="slider4" Maximum="50" 
+	                Minimum="16" ValueChanged="slider4_ValueChanged">
+            </Slider>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
